@@ -1,5 +1,16 @@
 add_executable(${PROJECT_NAME}
-        main.cpp)
+        Emulator.cpp
+        components/Memory.cpp
+        components/Memory.h
+        components/IO.cpp
+        components/IO.h
+        components/Display.cpp
+        components/Display.h
+        components/Speaker.cpp
+        components/Speaker.h
+        components/Keyboard.cpp
+        components/Keyboard.h
+)
 target_link_libraries(${PROJECT_NAME}
         PRIVATE ${SDL2_LIBRARIES}
         PRIVATE Intel8080)
