@@ -25,8 +25,7 @@ void IO::write(std::uint8_t port, std::uint8_t data)
 
 void IO::sound(std::uint8_t data, int loc)
 {
-    /*
-     * sound1:
+    /* sound1:
      *  bit 0=UFO (repeats)        SX0 0.raw
      *  bit 1=Shot                 SX1 1.raw
      *  bit 2=Flash (player die)   SX2 2.raw

@@ -13,13 +13,13 @@ public:
     void write(std::uint8_t, std::uint8_t);
 private:
     // INP0: mapped but never used
-    std::uint8_t inp0() { return 0b1110; }
+    static std::uint8_t inp0() { return 0b1110; }
 
     // INP1: inputs
-    std::uint8_t inp1() { return keyboard.input1(); }
+    std::uint8_t inp1() { return keyboard.input1; }
 
     // INP2: inputs
-    std::uint8_t inp2() { return keyboard.input2(); }
+    std::uint8_t inp2() { return keyboard.input2; }
 
     // SHFT_IN: bit shift register read
     std::uint8_t shftIn() { return (r >> (8 - offset)) & 0xFF; }
@@ -28,7 +28,7 @@ private:
     void shftAmnt(std::uint8_t data) { offset = data & 0b111; }
 
     // SHFT_DATA: shift data
-    void shftData(std::uint8_t data) { r <<= 8 | data; }
+    void shftData(std::uint8_t data) { r = (r >> 8) | (data << 8); }
 
     // SOUND1: sound bits
     // SOUND2: sound bits
