@@ -1,7 +1,5 @@
 #include "Display.h"
 
-#include <iostream>
-
 void Display::draw(std::array<std::uint8_t, 0x1C00>& vram) {
     for (int i {0}; i != vram.size(); ++i) {
         const std::uint8_t byte{vram[i]};
@@ -10,10 +8,11 @@ void Display::draw(std::array<std::uint8_t, 0x1C00>& vram) {
 
         for (int bit {0}; bit != 8; ++bit, ++row) {
             // select the correct color
+            long long color {textColor_};
 
 
             // transpose the array (rotate 90 degrees counter-clockwise)
-            rasterBuffer_[screenHeight_ - row - 1][col] = (byte >> bit) & 0b1 ? colorOn_ : colorOff_;
+            rasterBuffer_[screenHeight_ - row - 1][col] = (byte >> bit) & 0b1 ? color : screenColor_;
         }
     }
 

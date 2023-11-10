@@ -16,13 +16,13 @@ private:
     static std::uint8_t inp0() { return 0b1110; }
 
     // INP1: inputs
-    std::uint8_t inp1() { return keyboard.input1; }
+    [[nodiscard]] std::uint8_t inp1() const { return keyboard.input1; }
 
     // INP2: inputs
-    std::uint8_t inp2() { return keyboard.input2; }
+    [[nodiscard]] std::uint8_t inp2() const { return keyboard.input2; }
 
     // SHFT_IN: bit shift register read
-    std::uint8_t shftIn() { return (r >> (8 - offset)) & 0xFF; }
+    [[nodiscard]] std::uint8_t shftIn() const { return (r >> (8 - offset)) & 0xFF; }
 
     // SHIFTAMNT: shift amount (3 bits)
     void shftAmnt(std::uint8_t data) { offset = data & 0b111; }

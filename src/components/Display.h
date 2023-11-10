@@ -50,11 +50,13 @@ public:
 
     bool active {false};
 private:
-    static constexpr int rasterWidth_ {28};
-    static constexpr int screenWidth_ {rasterWidth_ * 8};
+    // color map constants in ABGR format (alpha, blue, green, red)
+    static constexpr unsigned int textColor_ {0xFFFFFFFF}; // default=white
+    static constexpr unsigned int screenColor_ {0xFF000000}; // default=black
+
+    // display constants
+    static constexpr int screenWidth_ {224};
     static constexpr int screenHeight_ {256};
-    static constexpr long long colorOn_ {0xFFFFFFFF};
-    static constexpr long long colorOff_ {0xFF000000};
     static constexpr int scaleFactor_ {3};
     static constexpr int pitch {screenWidth_ * sizeof(std::uint32_t)};
 

@@ -8,7 +8,7 @@ void Memory::write(std::uint16_t addr, const std::uint8_t data)
     addr &= mirror;
 
     if (addr < ramStart)
-        std::cout << (int) addr << ' ' << (int) data << ' ' << "error: attempt to write to read-only memory\n";
+        std::cout << "error: attempt to write to read-only memory\n";
     else if (addr < vramStart)
         ram[addr - ramStart] = data;
     else

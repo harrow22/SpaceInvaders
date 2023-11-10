@@ -10,9 +10,10 @@ public:
 
     void onKeyDown(SDL_Scancode);
     void onKeyUp(SDL_Scancode);
-    std::uint8_t input1 {0b00001001};
+    std::uint8_t input1 {0b00001000};
     std::uint8_t input2;
 private:
+    static constexpr std::uint8_t credit {0b00000001}; // bit 0 CREDIT (1 if deposit)
     static constexpr std::uint8_t twoPlayer {0b00000010}; // bit 1 = 2P start (1 if pressed)
     static constexpr std::uint8_t onePlayer {0b00000100}; // bit 2 = 1P start (1 if pressed)
     static constexpr std::uint8_t p1shot {0b00010000}; // bit 4 = P1 shot (1 if pressed)
