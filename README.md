@@ -1,21 +1,30 @@
 # SpaceInvaders 👾
 This is an emulator of the 1978 Taito arcade machine, [Space Invaders](https://en.wikipedia.org/wiki/Space_Invaders), with color and sound! It runs on top of my [Intel8080 core](https://github.com/harrow22/Intel8080).  
+<p align="center">
+  <img alt="Spacefight Invaders attract mode gif" src="https://raw.githubusercontent.com/harrow22/SpaceInvaders/master/examples/attract_mode.gif" />
+</p>
 
 # Controls
+* `C` to add credits
+* `1` or `2` to start the game in one or two player 
+* `space` to shoot
+* `left arrow key` to move left
+* `right arrow key` to move right
+* `T` to tilt
 
 # Installation
-I've provided installers on the [releases] page. After installation, you will need to add the [ROMs](assets/roms) and [sound files](assets/sound) to the assets folder. Then to run the emulator, simply click on the `.exe`.
+I've provided installers on the [releases](https://github.com/harrow22/SpaceInvaders/releases) page. After installation, you will need to add the [ROMs](assets/roms) and [sound files](assets/sound) to the assets folder. Then to run the emulator, simply click on the `.exe`.
 
 ### Changing the behavior of the emulator
 1) You will need to launch the emulator from the terminal. Use the following command:
    ```
-      path/to/Intel8080.exe <PARAMETERS>
+   path/to/Intel8080.exe <PARAMETERS>
    ```
 2) In place of `<PARAMETERS>`, you can add the following to the program:
    * `-lives <NUMBER in range [3,6]>` - changes the number of lives you start with (default is 3).
    * `-extra_life <1500 or 1000>` - changes the amount of points needed to gain an extra life (default is 1500).
 > [!NOTE]
-> For example, if I wanted to start the game with 5 lives instead of 3, I would run: `'~\Downloads\Intel 8080 Emulator\bin\SpaceInvaders.exe -lives 5'`.
+> For example, if I wanted to start the game with 5 lives instead of 3, I would run: `'~\Downloads\Intel 8080 Emulator\bin\SpaceInvaders.exe' -lives 5`.
 
 ## Building from Source
 ### Dependencies
@@ -38,7 +47,7 @@ I've provided installers on the [releases] page. After installation, you will ne
     cmake -S . -B build -G <generator> -DCMAKE_BUILD_TYPE=RELEASE -DCMAKE_PREFIX_PATH <path/to/sdl>
     cd build
     cmake --build . --config Release
-    cmake --install . --config Release
+    cmake --install . --config Release --prefix <path/to/install_location>/SpaceInvadersEmulator/
     ```
 5) Run the executable
 

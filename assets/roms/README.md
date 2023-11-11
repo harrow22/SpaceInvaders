@@ -1,4 +1,4 @@
-# SpaceInvaders sounds
+# SpaceInvaders roms
 
 In order to run the emulator you will need to provide the ROMs yourself.
 
