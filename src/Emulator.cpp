@@ -134,9 +134,9 @@ int main(int argc, char** argv)
                 intel8080.tick();
 
                 // handle intel8080 requests
-                if (intel8080.pins & Intel8080::SYNC and intel8080.pins & Intel8080::INTA) {
+                if (intel8080.pins & Intel8080::SYNC and intel8080.pins & Intel8080::INTA)
                     onInterrupt(intel8080, resetVector);
-                } else if (intel8080.pins & Intel8080::DBIN)
+                else if (intel8080.pins & Intel8080::DBIN)
                     onDataIn(intel8080, memory, io);
                 else if (intel8080.pins & Intel8080::WR)
                     onDataOut(intel8080, memory, io);
