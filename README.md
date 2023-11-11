@@ -28,9 +28,9 @@ I've provided installers on the [releases](https://github.com/harrow22/SpaceInva
    |---------------------------------|---------|-------------------------------------------------------------|
    | -lives <NUMBER in range [3,6]>  | 3       | changes the number of lives you start with (default is 3).  |
    | -extra_life <1500 or 1000>      | 1500    | changes the amount of points needed to gain an extra life   |
-   
-> For example, if I wanted to start the game with 5 lives instead of 3, I would run: <br/>
->  `'~\Downloads\Intel 8080 Emulator\bin\SpaceInvaders.exe' -lives 5`
+
+   For example, if I wanted to start the game with 5 lives instead of 3, I would run: <br/>
+   `'~\Downloads\Intel 8080 Emulator\bin\SpaceInvaders.exe' -lives 5`
 
 ## Building from Source
 ### Dependencies
