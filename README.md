@@ -5,12 +5,15 @@ This is an emulator of the 1978 Taito arcade machine [Space Invaders](https://en
 </p>
 
 # Controls
-* `C` to add credits
-* `1` or `2` to start the game in either one or two player mode
-* `left arrow key` to move left
-* `right arrow key` to move right
-* `space` to shoot
-* `T` to tilt
+| Key         | Action                            |
+|-------------|-----------------------------------|
+| C           | deposit credits                   |
+| 1           | start the game in one-player mode |
+| 2           | start the game in two-player mode |
+| left arrow  | move left                         |
+| right arrow | move right                        |
+| space       | shoot                             |
+| T           | tilt the machine                  |
 
 # Installation
 I've provided installers on the [releases](https://github.com/harrow22/SpaceInvaders/releases) page. After installation, you will need to add the [ROMs](assets/roms) and [sound files](assets/sound) to the assets folder. Then to run the emulator, simply click on the `.exe`.
@@ -25,7 +28,7 @@ I've provided installers on the [releases](https://github.com/harrow22/SpaceInva
    * `-extra_life <1500 or 1000>` - changes the amount of points needed to gain an extra life (default is 1500).
 
 > For example, if I wanted to start the game with 5 lives instead of 3, I would run: <br/>
-> `'~\Downloads\Intel 8080 Emulator\bin\SpaceInvaders.exe' -lives 5`
+>  `'~\Downloads\Intel 8080 Emulator\bin\SpaceInvaders.exe' -lives 5`
 
 ## Building from Source
 ### Dependencies
