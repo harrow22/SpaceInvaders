@@ -24,6 +24,7 @@ I've provided installers on the [releases](https://github.com/harrow22/SpaceInva
    path/to/Intel8080.exe <PARAMETERS...>
    ```
 2) Replace `<PARAMETERS...>`:
+
    | Parameter         | Range        | Default | Description                                               |
    |-------------------|--------------|---------|-----------------------------------------------------------|
    | `-lives <n>`      | [3,6]        | 3       | changes the number of lives you start with                |
