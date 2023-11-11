@@ -7,7 +7,7 @@
 
 class Memory {
 public:
-    explicit Memory(const std::string& env) : hiscorePath{env + "/../../hiscore.dat"}
+    explicit Memory(const std::string& env) : hiscorePath{env + "/../../assets/hiscore.dat"}
     {
         // loading the roms
         const std::string dir {env + "/../../assets/roms/invaders."};
