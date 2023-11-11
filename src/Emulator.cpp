@@ -142,8 +142,10 @@ int main(int argc, char** argv)
                     onDataOut(intel8080, memory, io);
             }
             // generate interrupt
-            intel8080.pins |= Intel8080::INT;
-            resetVector = rst[half];
+            if (intel8080.pins & Intel8080::INTE) {
+                intel8080.pins |= Intel8080::INT;
+                resetVector = rst[half];
+            }
         }
 
         // draw a frame
