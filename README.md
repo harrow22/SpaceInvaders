@@ -1,5 +1,5 @@
 # 👾 SpaceInvaders 👾
-This is an emulator of the 1978 Taito arcade machine [Space Invaders](https://en.wikipedia.org/wiki/Space_Invaders), with color and sound! It runs on top of my [Intel8080 core](https://github.com/harrow22/Intel8080).  
+This is an emulator of the 1978 Taito arcade machine [Space Invaders](https://en.wikipedia.org/wiki/Space_Invaders) with color and sound! It runs on top of my [Intel8080 core](https://github.com/harrow22/Intel8080).  
 <p align="center">
   <img alt="Spacefight Invaders attract mode gif" src="https://raw.githubusercontent.com/harrow22/SpaceInvaders/master/examples/attract_mode.gif" />
 </p>
@@ -24,7 +24,7 @@ I've provided installers on the [releases](https://github.com/harrow22/SpaceInva
    * `-lives <NUMBER in range [3,6]>` - changes the number of lives you start with (default is 3).
    * `-extra_life <1500 or 1000>` - changes the amount of points needed to gain an extra life (default is 1500).
 
-> For example, if I wanted to start the game with 5 lives instead of 3, I would run: 
+> For example, if I wanted to start the game with 5 lives instead of 3, I would run: <br/>
 > `'~\Downloads\Intel 8080 Emulator\bin\SpaceInvaders.exe' -lives 5`.
 
 ## Building from Source
@@ -47,9 +47,9 @@ I've provided installers on the [releases](https://github.com/harrow22/SpaceInva
     cmake -S . -B build -G <generator> -DCMAKE_BUILD_TYPE=RELEASE -DCMAKE_PREFIX_PATH <path/to/sdl>
     cd build
     cmake --build . --config Release
-    cmake --install . --config Release --prefix <path/to/install_location>/SpaceInvadersEmulator/
+    cmake --install . --config Release --prefix <path/to/install_directory>/SpaceInvadersEmulator/
     ```
-4) Add the [ROMs](assets/roms) and [sound files](assets/sound) to the assets folder in the install directory.
+4) Add the [ROMs](assets/roms) and [sound files](assets/sound) to the assets folder (in the install directory).
 5) Run the executable
 
 # Resources
