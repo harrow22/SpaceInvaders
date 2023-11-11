@@ -20,7 +20,7 @@ I've provided installers on the [releases](https://github.com/harrow22/SpaceInva
 
 ### Changing the behavior of the emulator
 1) You will need to launch the emulator from a terminal. Open a terminal and just drag and drop `SpaceInvaders.exe` onto it.
-2) Add any of the following parameters to the end of the path:
+2) Add any of the following parameters after the end of the path:
 
    | Parameter         | Range        | Default | Description                                               |
    |-------------------|--------------|---------|-----------------------------------------------------------|
