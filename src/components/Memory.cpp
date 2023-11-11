@@ -26,10 +26,10 @@ std::uint8_t Memory::read(std::uint16_t addr) const
 
 bool Memory::loadRom(std::string path, int addr)
 {
-    std::ifstream file {"assets/roms/" + path, std::ios::binary};
+    std::ifstream file {path, std::ios::binary};
 
     if (!file.is_open()) {
-        std::cerr << std::format("error: can't open file '{:s}'. Ensure you're in the correct directory: SpaceInvaders/\n", path);
+        std::cerr << std::format("error: can't open file '{:s}'.\n", path);
         return false;
     }
 
@@ -46,7 +46,7 @@ bool Memory::loadRom(std::string path, int addr)
 void Memory::loadHighScore()
 {
     if (!romLoaded) return;
-    std::ifstream hiscoreFile {"assets/" + hiscorePath, std::ios::binary};
+    std::ifstream hiscoreFile {"../assets/" + hiscorePath, std::ios::binary};
 
     if (hiscoreFile.is_open()) {
         // see CopyRAMMirror: (https://computerarcheology.com/Arcade/SpaceInvaders/Code.html)

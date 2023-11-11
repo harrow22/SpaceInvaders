@@ -8,9 +8,9 @@
 
 class Speaker {
 public:
-    Speaker()
+    explicit Speaker(const std::string& env)
     {
-        const std::string dir {"assets/sound/"};
+        const std::string dir {env + "/../../assets/sound/"};
         const std::string format {".wav"};
         const std::string soundFiles[2][len] {
                 {"0", "3", "2", "1", "9","4", "5", "6", "7", "8"},
