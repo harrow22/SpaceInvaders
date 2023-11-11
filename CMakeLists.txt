@@ -26,8 +26,6 @@ add_subdirectory(src)
 install(TARGETS ${PROJECT_NAME}
         RUNTIME DESTINATION bin
         LIBRARY DESTINATION lib)
-
-
 install(DIRECTORY DESTINATION ${ROM_FOLDER})
 install(DIRECTORY DESTINATION ${SOUND_FOLDER})
 

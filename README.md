@@ -1,5 +1,5 @@
 # 👾 SpaceInvaders 👾
-This is an emulator of the 1978 Taito arcade machine [Space Invaders](https://en.wikipedia.org/wiki/Space_Invaders) with color and sound! It runs on top of my [Intel8080 core](https://github.com/harrow22/Intel8080).  
+This is an emulator of the 1978 Taito arcade machine [Space Invaders](https://en.wikipedia.org/wiki/Space_Invaders) running on top of my [Intel8080 core](https://github.com/harrow22/Intel8080). It comes with color, sound, and high score persistence!
 <p align="center">
   <img alt="Spacefight Invaders attract mode gif" src="https://raw.githubusercontent.com/harrow22/SpaceInvaders/master/examples/attract_mode.gif" />
 </p>
@@ -25,7 +25,7 @@ I've provided installers on the [releases](https://github.com/harrow22/SpaceInva
    * `-extra_life <1500 or 1000>` - changes the amount of points needed to gain an extra life (default is 1500).
 
 > For example, if I wanted to start the game with 5 lives instead of 3, I would run: <br/>
-> `'~\Downloads\Intel 8080 Emulator\bin\SpaceInvaders.exe' -lives 5`.
+> `'~\Downloads\Intel 8080 Emulator\bin\SpaceInvaders.exe' -lives 5`
 
 ## Building from Source
 ### Dependencies
