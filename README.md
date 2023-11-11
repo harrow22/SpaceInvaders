@@ -19,7 +19,7 @@ This is an emulator of the 1978 Taito arcade machine [Space Invaders](https://en
 I've provided installers on the [releases](https://github.com/harrow22/SpaceInvaders/releases) page. After installation, you will need to add the [ROMs](assets/roms) and [sound files](assets/sound) to the assets folder. Then to run the emulator, simply double-click on `SpaceInvaders.exe`.
 
 ### Changing the behavior of the emulator
-1) You will need to launch the emulator from a terminal. Open a terminal and just drag and drop `SpaceInvaders.exe` onto it.
+1) Open a terminal then drag and drop `SpaceInvaders.exe` onto it.
 2) Add any of the following parameters after the end of the path:
 
    | Parameter         | Range        | Default | Description                                               |
