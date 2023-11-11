@@ -9,7 +9,7 @@ void Display::draw(std::array<std::uint8_t, 0x1C00>& vram) {
         for (int bit {0}; bit != 8; ++bit, ++rowBegin) {
             const int row {screenHeight_ - rowBegin - 1};
 
-            // select colors
+            // applying the color overlay
             unsigned long color {textColor_};
             if (32 <= row) {
                 if (row < 64)

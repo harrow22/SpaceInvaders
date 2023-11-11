@@ -66,7 +66,7 @@ private:
      * 24px: barrierColor
      * ↓
      * ↑
-     * 23px: shipColor
+     * 23px: alienColor
      * ↓
      * ↑               |       ↑
      * 17px: textColor | 26px←16px→87px: shipColor

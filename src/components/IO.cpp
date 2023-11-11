@@ -47,7 +47,7 @@ void IO::sound(std::uint8_t data, int loc)
      */
 
     for (int bit {0}; bit != 5; ++bit) {
-        if (data & bit)
+        if (data & (0b1 << bit))
             speaker.play(bit + loc);
     }
 }

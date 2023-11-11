@@ -4,3 +4,5 @@ cmake-build-release
 
 assets/roms/invaders.*
 assets/sound/*.wav
+assets/sound/*.mpeg
+assets/hiscore.dat

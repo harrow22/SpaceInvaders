@@ -7,7 +7,7 @@
 
 class IO {
 public:
-    explicit IO(Keyboard& kb) : keyboard{kb} { }
+    IO(Keyboard& kb, Speaker& spk) : keyboard{kb}, speaker{spk} { }
 
     std::uint8_t read(std::uint8_t);
     void write(std::uint8_t, std::uint8_t);
@@ -41,7 +41,7 @@ private:
     std::uint16_t r {0};
     std::uint8_t offset {0};
 
-    Speaker speaker {};
+    Speaker& speaker;
     Keyboard& keyboard;
 };
 

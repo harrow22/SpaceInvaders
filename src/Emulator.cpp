@@ -2,11 +2,30 @@
 #include <algorithm>
 #include <format>
 #include "SDL.h"
+#include "SDL_mixer.h"
 #include "Intel8080.h"
 #include "components/Memory.h"
 #include "components/IO.h"
 #include "components/Display.h"
 #include "components/Keyboard.h"
+#include "components/Speaker.h"
+
+bool initSDL()
+{
+    // initialize SDL2
+    if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO) < 0) {
+        SDL_Log("SDL_Init() failed. SDL_Error: %s\n", SDL_GetError());
+        return false;
+    }
+
+    // initialize SDL_mixer
+    if(Mix_OpenAudio(48000, AUDIO_F32SYS, MIX_DEFAULT_CHANNELS, 1024 * 2) < 0) {
+        SDL_Log( "SDL_mixer could not initialize! SDL_mixer Error: %s\n", Mix_GetError());
+        return false;
+    }
+
+    return true;
+}
 
 void onInterrupt(Intel8080& intel8080, std::uint8_t resetVector)
 {
@@ -46,10 +65,7 @@ void onDataOut(Intel8080& intel8080, Memory& memory, IO& io)
 
 int main(int argc, char** argv)
 {
-    if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO | SDL_INIT_EVENTS) < 0) {
-        SDL_Log("SDL_Init() failed. SDL_Error: %s\n", SDL_GetError());
-        return 0;
-    }
+    if (!initSDL()) return 0;
 
     // clock speed is technically 2 mhz but setting it to 1 here because I need to run the loop twice for both interrupts
     static constexpr int clockSpeed {static_cast<int>(1e6)};
@@ -87,8 +103,9 @@ int main(int argc, char** argv)
     // defining hardware
     Intel8080 intel8080 {};
     Memory memory {};
+    Speaker speaker {};
     Keyboard keyboard {dipswitch};
-    IO io {keyboard};
+    IO io {keyboard, speaker};
     Display display {};
 
     // quit=false if the display initialized correctly and roms were successfully loaded; otherwise quit=true
@@ -139,6 +156,8 @@ int main(int argc, char** argv)
     // user exited the window
     memory.saveHighScore();
     display.off();
+    speaker.off();
+    Mix_Quit();
     SDL_Quit();
     return 0;
 }
