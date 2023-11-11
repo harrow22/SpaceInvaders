@@ -50,8 +50,33 @@ public:
 
     bool active {false};
 private:
-    // color map constants in ABGR format (alpha, blue, green, red)
+    /**
+     * Color codes are in ABGR format (alpha, blue, green, red).
+     * Color overlay:
+     * ↑
+     * 32px: textColor
+     * ↓
+     * ↑
+     * 32px: ufoColor
+     * ↓
+     * ↑
+     * 128px: aliensColor
+     * ↓
+     * ↑
+     * 24px: barrierColor
+     * ↓
+     * ↑
+     * 23px: shipColor
+     * ↓
+     * ↑               |       ↑
+     * 17px: textColor | 26px←16px→87px: shipColor
+     * ↓               |       ↓
+     */
     static constexpr unsigned int textColor_ {0xFFFFFFFF}; // default=white
+    static constexpr unsigned int ufoColor_ {0xFF2626B2}; // default=red
+    static constexpr unsigned int aliensColor_ {0xFFB26384}; // default=purple
+    static constexpr unsigned int barrierColor_ {0xFF32CD32}; // default=green
+    static constexpr unsigned int shipColor_ {0xFFFFFF00}; // default=cyan
     static constexpr unsigned int screenColor_ {0xFF000000}; // default=black
 
     // display constants

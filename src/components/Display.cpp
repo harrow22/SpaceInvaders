@@ -4,15 +4,26 @@ void Display::draw(std::array<std::uint8_t, 0x1C00>& vram) {
     for (int i {0}; i != vram.size(); ++i) {
         const std::uint8_t byte{vram[i]};
         const int col {i * 8 / screenHeight_};
-        int row {i * 8 % screenHeight_};
+        int rowBegin {i * 8 % screenHeight_};
 
-        for (int bit {0}; bit != 8; ++bit, ++row) {
-            // select the correct color
-            long long color {textColor_};
+        for (int bit {0}; bit != 8; ++bit, ++rowBegin) {
+            const int row {screenHeight_ - rowBegin - 1};
 
+            // select colors
+            unsigned long color {textColor_};
+            if (32 <= row) {
+                if (row < 64)
+                    color = ufoColor_;
+                else if (row < 192)
+                    color = aliensColor_;
+                else if (row < 216)
+                    color = barrierColor_;
+                else if (row < 239 or (row >= 240 and 25 < col and col < 137))
+                    color = shipColor_;
+            }
 
             // transpose the array (rotate 90 degrees counter-clockwise)
-            rasterBuffer_[screenHeight_ - row - 1][col] = (byte >> bit) & 0b1 ? color : screenColor_;
+            rasterBuffer_[row][col] = (byte >> bit) & 0b1 ? color : screenColor_;
         }
     }
 

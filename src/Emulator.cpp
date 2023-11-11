@@ -94,6 +94,7 @@ int main(int argc, char** argv)
     // quit=false if the display initialized correctly and roms were successfully loaded; otherwise quit=true
     bool quit {!(display.active and memory.romLoaded)};
     intel8080.reset();
+    memory.loadHighScore();
     while (!quit) {
         // process SDL events
         SDL_Event e;
@@ -135,7 +136,8 @@ int main(int argc, char** argv)
         SDL_Delay(std::max(0LL, frameTime - static_cast<long long>(SDL_GetTicks64() - begin)));
     }
 
-    // user exited the window, quit sdl
+    // user exited the window
+    memory.saveHighScore();
     display.off();
     SDL_Quit();
     return 0;

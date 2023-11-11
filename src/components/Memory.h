@@ -20,6 +20,8 @@ public:
         romLoaded = true;
     }
 
+    void loadHighScore();
+    void saveHighScore();
     void write(std::uint16_t, std::uint8_t);
     [[nodiscard]] std::uint8_t read(std::uint16_t) const;
 
@@ -33,6 +35,7 @@ private:
      *  4000- RAM mirror
      */
 
+    static constexpr std::string hiscorePath {"hiscore.dat"};
     static constexpr int ramStart {0x2000};
     static constexpr int vramStart {0x2400};
     static constexpr int mirror {0x3FFF};
