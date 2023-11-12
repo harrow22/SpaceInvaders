@@ -16,7 +16,7 @@ This is an emulator of the 1978 Taito arcade machine [Space Invaders](https://en
 | T           | tilt the machine                  |
 
 # Installation
-I've provided an installer for Windows on the [releases](https://github.com/harrow22/SpaceInvaders/releases) page [(or build from source)](#Building from Source). After installation, you will need to add the [ROMs](assets/roms) and [sound files](assets/sound) to the assets folder. Then to run the emulator, simply double-click on `SpaceInvaders.exe`.
+I've provided an installer for Windows on the [releases](https://github.com/harrow22/SpaceInvaders/releases) page [(or build from source)](#building-from-source). After installation, you will need to add the [ROMs](assets/roms) and [sound files](assets/sound) to the assets folder. Then to run the emulator, simply double-click on `SpaceInvaders.exe`.
 
 > [!NOTE] 
 > If you're using the installer, the default directory will be `C:\Program Files\`, which will require you to open the `.exe` in administrator mode everytime if you want scores to save. I would just recommend installing somewhere else.
