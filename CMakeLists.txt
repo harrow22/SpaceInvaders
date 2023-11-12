@@ -13,10 +13,8 @@ include(InstallRequiredSystemLibraries)
 set(CPACK_RESOURCE_FILE_LICENSE "${CMAKE_CURRENT_SOURCE_DIR}/License.txt")
 set(CPACK_RESOURCE_FILE_README ${CMAKE_CURRENT_SOURCE_DIR}/README.md)
 set(CPACK_PACKAGE_INSTALL_DIRECTORY "Space Invaders Emulator")
-set(CPACK_IFW_PACKAGE_TITLE "Space Invaders")
 
 include(CPack)
-include(CPackIFW)
 
 include(FetchContent)
 FetchContent_Declare(
@@ -37,10 +35,3 @@ install(TARGETS ${PROJECT_NAME}
         LIBRARY DESTINATION lib COMPONENT space_invaders_installer)
 install(DIRECTORY DESTINATION ${ROM_FOLDER})
 install(DIRECTORY DESTINATION ${SOUND_FOLDER})
-
-cpack_add_component(space_invaders_installer
-        DISPLAY_NAME "Space Invaders"
-        DESCRIPTION ${CMAKE_PROJECT_DESCRIPTION}
-        REQUIRED)
-cpack_ifw_configure_component(space_invaders_installer
-        LICENSES License ${CMAKE_SOURCE_DIR}/License.txt)

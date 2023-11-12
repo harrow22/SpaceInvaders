@@ -1,7 +1,7 @@
 # 👾 SpaceInvaders 👾
 This is an emulator of the 1978 Taito arcade machine [Space Invaders](https://en.wikipedia.org/wiki/Space_Invaders) running on top of my [Intel8080 core](https://github.com/harrow22/Intel8080). It comes with color, sound, and high score persistence!
 <p align="center">
-  <img alt="Spacefight Invaders attract mode gif" src="https://raw.githubusercontent.com/harrow22/SpaceInvaders/master/examples/attract_mode.gif" />
+  <img alt="Spacefight Invaders attract mode gif" src="https://raw.githubusercontent.com/harrow22/SpaceInvaders/master/examples/attract_mode.gif" height="400" />
 </p>
 
 # Controls
