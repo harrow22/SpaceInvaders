@@ -34,7 +34,7 @@ I've provided an installer for Windows on the [releases](https://github.com/harr
    | `-extra_life <n>` | 1500 or 1000 | 1500    | changes the amount of points needed to gain an extra life |
 
    For example, if I wanted to start the game with 5 lives instead of 3, I would run: <br/>
-   `'~\Downloads\Intel 8080 Emulator\bin\SpaceInvaders.exe' -lives 5`
+   `'~\Downloads\Space Invaders Emulator\bin\SpaceInvaders.exe' -lives 5`
 
 ## Building from Source
 ### Dependencies
