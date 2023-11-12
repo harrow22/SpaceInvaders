@@ -22,8 +22,11 @@ I've provided an installer for Windows on the [releases](https://github.com/harr
 > If you're using the installer, the default directory will be `C:\Program Files\`, which will require you to open the `.exe` in administrator mode everytime if you want scores to save. I would just recommend installing somewhere else.
 
 ### Changing the behavior of the emulator
-1) Open a terminal, then drag and drop `SpaceInvaders.exe` onto it.
-2) Add any of the following parameters after the end of the path:
+1) Open a terminal, then type out the path to where you installed `SpaceInvaders.exe`:
+   ```
+   path/to/SpaceInvadersEmulator/bin/SpaceInvaders.exe <PARAMETERS...>
+   ```  
+2) Replace `<PARAMETERS...>` with:
 
    | Parameter         | Range        | Default | Description                                               |
    |-------------------|--------------|---------|-----------------------------------------------------------|
