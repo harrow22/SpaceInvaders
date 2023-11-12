@@ -46,7 +46,7 @@ bool Memory::loadRom(std::string path, int addr)
 void Memory::loadHighScore()
 {
     if (!romLoaded) return;
-    std::ifstream hiscoreFile {"../assets/" + hiscorePath, std::ios::binary};
+    std::ifstream hiscoreFile {hiscorePath, std::ios::binary};
 
     if (hiscoreFile.is_open()) {
         // see CopyRAMMirror: (https://computerarcheology.com/Arcade/SpaceInvaders/Code.html)
@@ -57,10 +57,8 @@ void Memory::loadHighScore()
 void Memory::saveHighScore()
 {
     if (!romLoaded) return;
-    std::ofstream hiscoreFile {"assets/" + hiscorePath, std::ios::out};
+    std::ofstream hiscoreFile {hiscorePath, std::ios::out};
 
-    if (hiscoreFile.is_open()) {
-        // see hiScorL (https://computerarcheology.com/Arcade/SpaceInvaders/RAMUse.html)
-        hiscoreFile.write(reinterpret_cast<char*>(&ram[0x20F4 - ramStart]), 2);
-    }
+    // see hiScorL (https://computerarcheology.com/Arcade/SpaceInvaders/RAMUse.html)
+    hiscoreFile.write(reinterpret_cast<char*>(&ram[0x20F4 - ramStart]), 2);
 }
