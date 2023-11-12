@@ -79,7 +79,7 @@ int main(int argc, char** argv)
     for (int i {1}; i < argc; ++i) {
         bool hasNext {i + 1 != argc};
 
-        if (argv[i] == "-ships"sv and hasNext) {
+        if (argv[i] == "-lives"sv and hasNext) {
             try {
                 std::string n {argv[++i]};
                 switch (std::stoi(n)) {
@@ -91,19 +91,19 @@ int main(int argc, char** argv)
                 SDL_Log("error: failed to read integer for '-ships' parameter, using default=3.\n");
             }
 
-        } else if (argv[i] == "-difficulty"sv and hasNext) {
+        } else if (argv[i] == "-extra_life"sv and hasNext) {
             std::string difficulty {argv[++i]};
             if (difficulty == "EASY")
                 dipswitch |= 0b1000U;
         } else {
-            SDL_Log("Unrecognized command line argument '%s'.\nAvailable parameters are:\n\tenable logging: -ships <NUMBER in range [3,6]>\n\t-difficulty <NORMAL/EASY (case-sensitive)>\n\n", argv[i]);
+            SDL_Log("Unrecognized command line argument '%s'.\nAvailable parameters are:\n\t-lives <NUMBER in range [3,6]>\n\t-extra_life <1500 or 1000>\n\n", argv[i]);
         }
     }
 
     // defining hardware
     Intel8080 intel8080 {};
-    Memory memory {};
-    Speaker speaker {};
+    Memory memory {argv[0]};
+    Speaker speaker {argv[0]};
     Keyboard keyboard {dipswitch};
     IO io {keyboard, speaker};
     Display display {};
@@ -134,16 +134,18 @@ int main(int argc, char** argv)
                 intel8080.tick();
 
                 // handle intel8080 requests
-                if (intel8080.pins & Intel8080::SYNC and intel8080.pins & Intel8080::INTA) {
+                if (intel8080.pins & Intel8080::SYNC and intel8080.pins & Intel8080::INTA)
                     onInterrupt(intel8080, resetVector);
-                } else if (intel8080.pins & Intel8080::DBIN)
+                else if (intel8080.pins & Intel8080::DBIN)
                     onDataIn(intel8080, memory, io);
                 else if (intel8080.pins & Intel8080::WR)
                     onDataOut(intel8080, memory, io);
             }
             // generate interrupt
-            intel8080.pins |= Intel8080::INT;
-            resetVector = rst[half];
+            if (intel8080.pins & Intel8080::INTE) {
+                intel8080.pins |= Intel8080::INT;
+                resetVector = rst[half];
+            }
         }
 
         // draw a frame

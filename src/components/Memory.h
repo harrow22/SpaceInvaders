@@ -7,15 +7,15 @@
 
 class Memory {
 public:
-    Memory()
+    explicit Memory(const std::string& env) : hiscorePath{env + "/../../assets/hiscore.dat"}
     {
         // loading the roms
-        const std::string romPrefix {"invaders."};
-        const char romSuffix[4] {'h', 'g', 'f', 'e'};
+        const std::string dir {env + "/../../assets/roms/invaders."};
+        const char format[4] {'h', 'g', 'f', 'e'};
         const int addr[4] {0x0, 0x800, 0x1000, 0x1800};
 
         for (int i {0}; i != 4; ++i)
-            if (!loadRom(romPrefix + romSuffix[i], addr[i])) return;
+            if (!loadRom(dir + format[i], addr[i])) return;
 
         romLoaded = true;
     }
@@ -35,11 +35,11 @@ private:
      *  4000- RAM mirror
      */
 
-    static constexpr std::string hiscorePath {"hiscore.dat"};
     static constexpr int ramStart {0x2000};
     static constexpr int vramStart {0x2400};
     static constexpr int mirror {0x3FFF};
 
+    std::string hiscorePath;
     std::array<std::uint8_t, 0x1FFF - 0 + 1> rom {};
     std::array<std::uint8_t, 0x23FF - 0x2000 + 1> ram {};
     bool loadRom(std::string, int);
